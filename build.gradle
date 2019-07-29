@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+      maven {
+        url "https://plugins.gradle.org/m2/"
+      }
+      mavenCentral()
+    }
+    dependencies {
+        classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0')
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+group = 'tonsaito'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.palantir.docker'
+
+task unpack(type: Copy) {
+    dependsOn bootJar
+    from(zipTree(tasks.bootJar.outputs.files.singleFile))
+    into("build/dependency")
+}
+docker {
+    name "${project.group}/${bootJar.baseName}-${bootJar.version}"
+    copySpec.from(tasks.unpack.outputs).into("dependency")
+    buildArgs(['DEPENDENCY': "dependency"])
+}
+
+bootJar {
+    baseName = 'waes-passport'
+    //version =  '1.0.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile group: 'com.h2database', name: 'h2', version: '1.4.199'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.1'
+    compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0'
+	compile group: 'org.glassfish.jersey.core', name: 'jersey-common', version: '2.29'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
