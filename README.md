@@ -32,6 +32,12 @@ For the usability purposes you can find the built waes-passport-1.0.jar in the /
 java -jar ./run-here/waes-passport-1.0.jar
 ```
 
+Or you can use the docker image: [tonsaito/waes-passport](https://hub.docker.com/r/tonsaito/waes-passport)
+
+```bash
+docker run -p 8090:8090 --name waes tonsaito/waes-passport
+```
+
 ## Future improvements
 ```
 - API authentication/authorization: OAuth 2.0

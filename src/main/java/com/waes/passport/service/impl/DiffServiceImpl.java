@@ -66,7 +66,7 @@ public class DiffServiceImpl implements DiffService{
 		DiffEntity diffEntity = optionalDiffEntity.orElse(null);
 		
 		if(diffEntity == null) {
-			responseDiffModel.setResult(Constants.INVALID_ID_PLEASE_TRY_AGAIN);
+			responseDiffModel.setResult(Constants.ID_NOT_FOUND_PLEASE_TRY_AGAIN);
 		} else if ((diffEntity.getLeft() == null) && (diffEntity.getRight() == null) || Arrays.equals(diffEntity.getLeft(), diffEntity.getRight())) {
 			responseDiffModel.setResult(Constants.EQUAL_CONTENT);
 			return responseDiffModel;
