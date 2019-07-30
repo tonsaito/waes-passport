@@ -24,11 +24,15 @@ import com.waes.passport.model.ResponseModel;
 import com.waes.passport.service.DiffService;
 import com.waes.passport.util.EncodingUtil;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 /**
  * DiffControler class exposes all the Diff Rest APIs starting with /v1/diff
  * @author tonsaito
  *
  */
+@Api(value = "Diff")
 @RestController
 @RequestMapping("/v1/diff")
 @Produces(MediaType.APPLICATION_JSON)
@@ -46,6 +50,7 @@ public class DiffController {
 	 * @throws NumberFormatException
 	 * @throws UnsupportedEncodingException
 	 */
+	@ApiOperation(value="Saves and converts the LEFT base64 value of the given id")
 	@PutMapping("/{id}/left")
 	public ResponseEntity<?> left(@PathVariable("id") String id, @Valid @RequestBody DiffModel diffModel) throws NumberFormatException, UnsupportedEncodingException {
 		if(!StringUtils.isNumeric(id)) {
@@ -64,6 +69,7 @@ public class DiffController {
 	 * @throws NumberFormatException
 	 * @throws UnsupportedEncodingException
 	 */
+	@ApiOperation(value="Saves and converts the RIGHT base64 value of the given id")
 	@PutMapping("/{id}/right")
 	public ResponseEntity<?> right(@PathVariable("id") String id, @Valid @RequestBody DiffModel diffModel) throws NumberFormatException, UnsupportedEncodingException {
 		if(!StringUtils.isNumeric(id)) {
@@ -78,6 +84,7 @@ public class DiffController {
 	 * @param id
 	 * @return
 	 */
+	@ApiOperation(value="Execute diff operation between left and right values")
 	@GetMapping("/{id}")
 	public ResponseEntity<?> diff(@PathVariable("id") String id) {
 		if(!StringUtils.isNumeric(id)) {

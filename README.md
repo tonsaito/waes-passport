@@ -33,15 +33,18 @@ java -jar ./run-here/waes-passport-1.0.jar
 
 ## Future improvements
 ```
+- API authentication: OAuth 2.0
 - Externalize configuration (12Factor)
 - JMeter Test (To validate concurrency and stress test)
-- Swagger to auto document the APIs
 - Use lombok to generate getters, setters and another beans methods
 - Use sonarcloud for static code analysis
-- More tests, as always
 ```
 
 ## Usage
+
+Use Swagger or follow the next steps.
+
+Generated Swagger url: [http://localhost:8090/swagger-ui.html](http://localhost:8090/swagger-ui.html)
 
 #### PUT http://localhost:8090/v1/diff/{id}/left 
 #### PUT http://localhost:8090/v1/diff/{id}/right
@@ -67,7 +70,7 @@ ___
 
 ```
 [400] Invalid ID. Please, try again (for non numeric ids)
-[200] ID not found
+[200] ID not found. Please, try again
 [200] Equal content
 [200] Not equal size content
 [200] Not equal content with the following example body:
