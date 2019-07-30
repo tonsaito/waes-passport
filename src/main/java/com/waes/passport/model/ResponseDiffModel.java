@@ -3,6 +3,12 @@ package com.waes.passport.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ResponseDiffModel to use as a response of the diff api method with the result 
+ * and diffList of the comparison of the left and right values
+ * @author tonsaito
+ *
+ */
 public class ResponseDiffModel {
 
 	private String result;

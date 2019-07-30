@@ -53,19 +53,13 @@ public class DiffServiceImpl implements DiffService{
 	}
 	
 	/**
-	 * Returns the DiffEntity associated with the given id
+	 * Diff method to return the result of the comparison between the content of the LEFT and the RIGHT values of the given id
 	 * Transaction readOnly | Propagation.SUPPORTS
-	 * @param id the requested id associated of a DiffEntity entry
-	 * @return DiffEntity
+	 * @param id to search for a DiffEntity
+	 * @return ResponseDiffModel with the result of the comparison
 	 */
 	@Override
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-	public DiffEntity findById(Long id) {
-		Optional<DiffEntity> optionalDiffEntity = diffRepository.findById(id);
-		return optionalDiffEntity.orElse(new DiffEntity());
-	}
-
-	@Override
 	public ResponseDiffModel diff(Long id) {
 		ResponseDiffModel responseDiffModel = new ResponseDiffModel();
 		Optional<DiffEntity> optionalDiffEntity = diffRepository.findById(id);

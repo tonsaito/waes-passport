@@ -1,5 +1,10 @@
 package com.waes.passport.config;
 
+/**
+ * Constants to use inside the code
+ * @author tonsaito
+ *
+ */
 public class Constants {
 	public static final String REQUEST_RECEIVED_SUCCESSFULLY = "Request received successfully";
 	public static final String INVALID_ID_PLEASE_TRY_AGAIN = "ID not found. Please, try again";

@@ -11,36 +11,45 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Swagger class with the basic configuration to auto document the apis
+ * 
+ * @author tonsaito
+ *
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig extends WebMvcConfigurationSupport {
 
-  @Bean
-  public Docket greetingApi() {
-    return new Docket(DocumentationType.SWAGGER_2)
-        .select()
-        .apis(RequestHandlerSelectors.basePackage("com.waes.passport"))
-        .build()
-        .apiInfo(metaData());
+	/**
+	 * Define the Swagger Bean and point to the base package to scan the endpoints and generate the documentation
+	 * @return
+	 */
+	@Bean
+	public Docket greetingApi() {
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("com.waes.passport")).build().apiInfo(metaData());
 
-  }
+	}
 
-  private ApiInfo metaData() {
-    return new ApiInfoBuilder()
-        .title("Waes Passport")
-        .description("\"Swagger documentation for this amazing project\"")
-        .version("1.0.0")
-        .license("Apache License Version 2.0")
-        .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
-        .build();
-  }
+	/**
+	 * private method to define basic configurations of the Swagger page
+	 * 
+	 * @return the ApiInfoBuilder with the follow configurations
+	 */
+	private ApiInfo metaData() {
+		return new ApiInfoBuilder().title("Waes Passport")
+				.description("\"Swagger documentation for this amazing project\"").version("1.0.0")
+				.license("Apache License Version 2.0").licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
+				.build();
+	}
 
-  @Override
-  protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-    registry.addResourceHandler("swagger-ui.html")
-        .addResourceLocations("classpath:/META-INF/resources/");
-
-    registry.addResourceHandler("/webjars/**")
-        .addResourceLocations("classpath:/META-INF/resources/webjars/");
-  }
+	/**
+	 * Registry the resource handlers
+	 */
+	@Override
+	protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+	}
 }

@@ -2,16 +2,17 @@
 This Assignment is my passport to get a job in the Netherlands at Waes!
 
 ## The Assignment
-- Provide 2 http endpoints that accepts JSON base64 encoded binary data on both endpoints
- - host/v1/diff/{ID}/left and host/v1/diff/{ID}/right
-- The provided data needs to be diff-ed and the results shall be available on a third end point
- - host/v1/diff/{ID}
-- The results shall provide the following info in JSON format
- - If equal return that
- - If not of equal size just return that
- - If of same size provide insight in where the diffs are, actual diffs are not needed.
-   - So mainly offsets + length in the data
-- Make assumptions in the implementation explicit, choices are good but need to be
+
+* Provide 2 http endpoints that accepts JSON base64 encoded binary data on both endpoints
+    * host/v1/diff/{ID}/left and host/v1/diff/{ID}/right
+* The provided data needs to be diff-ed and the results shall be available on a third end point
+    * host/v1/diff/{ID}
+* The results shall provide the following info in JSON format
+    * If equal return that
+    * If not of equal size just return that
+    * If of same size provide insight in where the diffs are, actual diffs are not needed.
+    * So mainly offsets + length in the data
+* Make assumptions in the implementation explicit, choices are good but need to be
 communicated
 
 
@@ -33,18 +34,18 @@ java -jar ./run-here/waes-passport-1.0.jar
 
 ## Future improvements
 ```
-- API authentication: OAuth 2.0
+- API authentication/authorization: OAuth 2.0
 - Externalize configuration (12Factor)
 - JMeter Test (To validate concurrency and stress test)
-- Use lombok to generate getters, setters and another beans methods
+- Use Lombok to generate getters, setters and another beans methods
 - Use sonarcloud for static code analysis
 ```
 
-## Usage
-
-Use Swagger or follow the next steps.
+## API documentation
 
 Generated Swagger url: [http://localhost:8090/swagger-ui.html](http://localhost:8090/swagger-ui.html)
+
+## Usage
 
 #### PUT http://localhost:8090/v1/diff/{id}/left 
 #### PUT http://localhost:8090/v1/diff/{id}/right

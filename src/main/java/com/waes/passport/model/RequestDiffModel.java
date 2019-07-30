@@ -4,7 +4,12 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class DiffModel {
+/**
+ * RequestDiffModel to receive the left or right base64 value
+ * @author tonsaito
+ *
+ */
+public class RequestDiffModel {
 
 	@NotBlank(message = "required field encoded_data")
 	@JsonProperty("encoded_data")
