@@ -55,7 +55,8 @@ Generated Swagger url: [http://localhost:8090/swagger-ui.html](http://localhost:
 
 ## Usage
 
-You can import postman collection using the <b>run-package/waes-passport.postman_collection.json</b> file
+You can import postman collection using the <b>run-package/waes-passport.postman_collection.json</b> file,
+use the swagger interface or just call the follow endpoints
 
 #### PUT http://localhost:8090/v1/diff/{id}/left 
 #### PUT http://localhost:8090/v1/diff/{id}/right
