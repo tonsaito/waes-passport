@@ -26,10 +26,10 @@ communicated
 - Log management with Log4j
 
 ## How to run
-For the usability purposes you can find the built waes-passport-1.0.jar in the /run-here directory
+For the usability purposes you can find the built waes-passport.jar in the /run-package directory
 
 ```bash
-java -jar ./run-here/waes-passport-1.0.jar
+java -jar ./run-package/waes-passport.jar
 ```
 
 Or you can use the docker image: [tonsaito/waes-passport](https://hub.docker.com/r/tonsaito/waes-passport)
@@ -52,6 +52,8 @@ docker run -p 8090:8090 --name waes tonsaito/waes-passport
 Generated Swagger url: [http://localhost:8090/swagger-ui.html](http://localhost:8090/swagger-ui.html)
 
 ## Usage
+
+You can import postman collection using the <b>run-package/waes-passport.postman_collection.json</b> file
 
 #### PUT http://localhost:8090/v1/diff/{id}/left 
 #### PUT http://localhost:8090/v1/diff/{id}/right

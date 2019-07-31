@@ -12,4 +12,5 @@ public class Constants {
 	public static final String EQUAL_CONTENT = "Equal content";
 	public static final String NOT_EQUAL_CONTENT = "Not Equal content";
 	public static final String NOT_EQUAL_SIZE = "Not equal size content";
+	public static final String INVALID_BASE64_VALUE = "Invalid base64 value";
 }

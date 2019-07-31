@@ -33,7 +33,7 @@ docker {
 
 bootJar {
     baseName = 'waes-passport'
-    //version =  '1.0.0'
+    //version =  '1.0.0'//commented to generate Docker Image
 }
 
 repositories {

@@ -1,6 +1,7 @@
 package com.waes.passport.util;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -10,7 +11,11 @@ import org.junit.Test;
  *
  */
 public class EncodingUtilTest {
-
+	
+	@Test
+	public void shouldReturnNullBase64ToByteArray() throws IllegalArgumentException {
+		assertNull(EncodingUtil.decodeBase64ToByteArray(" "));
+	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void shouldThrowUnsupportedEncodingExceptionWhenTryToDecodeBase64ToByteArray() throws IllegalArgumentException{

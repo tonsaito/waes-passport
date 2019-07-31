@@ -1,0 +1,62 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Waes Passport - Diff Assignment",
+		"_postman_id": "3557a260-876a-83ac-3337-aafb01fe7c19",
+		"description": "This is the collection to access the endpoints of the Waes Diff Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/v1/diff/{id}/left",
+			"request": {
+				"url": "localhost:8090/v1/diff/1/left",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"encoded_data\": \"YWJiYg==\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/diff/{id}/right",
+			"request": {
+				"url": "localhost:8090/v1/diff/1/right",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"encoded_data\": \"YWJiYg==\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/diff/1",
+			"request": {
+				"url": "localhost:8090/v1/diff/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
