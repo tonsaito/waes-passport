@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * Application Class responsible to define Spring Boot configurations
+ * Application Class responsible for defining Spring Boot configurations
  * @author tonsaito
  */
 @SpringBootApplication

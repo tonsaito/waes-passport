@@ -1,7 +1,7 @@
 package com.waes.passport.config;
 
 /**
- * Constants to use inside the code
+ * Constants of the Application
  * @author tonsaito
  *
  */

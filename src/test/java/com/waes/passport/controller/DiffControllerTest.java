@@ -34,6 +34,11 @@ import com.waes.passport.model.RequestDiffModel;
 import com.waes.passport.repository.DiffRepository;
 import com.waes.passport.util.EncodingUtil;
 
+/**
+ * Integrated tests call all the DiffController endpoints
+ * @author tonsaito
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 @AutoConfigureMockMvc

@@ -21,6 +21,11 @@ import com.waes.passport.repository.DiffRepository;
 import com.waes.passport.service.DiffService;
 import com.waes.passport.util.EncodingUtil;
 
+/**
+ * DiffServiceImplTest class to validate all DiffService implemented methods
+ * @author tonsaito
+ *
+ */
 public class DiffServiceImplTest {
 	private DiffRepository diffRepository;
 	private DiffService diffService;

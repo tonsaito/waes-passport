@@ -12,7 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Swagger class with the basic configuration to auto document the apis
+ * Swagger class with the basic configuration to auto document the APIs
  * 
  * @author tonsaito
  *

@@ -1,7 +1,7 @@
 package com.waes.passport.model;
 
 /**
- * ResponseModel for basic responses on APIs requests
+ * ResponseModel for basic response on APIs requests
  * @author tonsaito
  *
  */

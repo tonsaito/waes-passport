@@ -18,7 +18,7 @@ public class EncodingUtil {
 	private EncodingUtil() {}
 
 	/**
-	 * Transforms String objects in byte[] using base64 encoding
+	 * Transforms String objects in byte[] using base64 decode
 	 * 
 	 * @param data the data that will be converted
 	 * @return returns the follow byte[] of the given String object

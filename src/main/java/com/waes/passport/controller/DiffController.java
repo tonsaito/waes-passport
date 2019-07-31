@@ -42,7 +42,7 @@ public class DiffController {
 	private DiffService diffService;
 
 	/**
-	 * left method saves base64 values associated to a given id. this method will validate the given payload and check if
+	 * left method saves base64 value associated to a given id. this method will validate the given payload and check if
 	 * the given id is numeric or not
 	 * @param id         		the associated id
 	 * @param requestDiffModel  payload with the base64 value
@@ -61,7 +61,7 @@ public class DiffController {
 	}
 	
 	/**
-	 * right method saves base64 values associated to a given id. this method will validate the given payload and check if
+	 * right method saves base64 value associated to a given id. this method will validate the given payload and check if
 	 * the given id is numeric or not
 	 * @param id         		the associated id
 	 * @param requestDiffModel  payload with the base64 value
@@ -82,7 +82,7 @@ public class DiffController {
 	/**
 	 * executes the diff method following the given id and return the result
 	 * @param id
-	 * @return 
+	 * @return
 	 */
 	@ApiOperation(value="Execute diff operation between left and right values")
 	@GetMapping("/{id}")

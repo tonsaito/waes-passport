@@ -29,7 +29,7 @@ public class DiffServiceImpl implements DiffService{
 	private DiffRepository diffRepository;
 
 	/**
-	 * Saves the DiffEntity getting the id, left and right params to create a new DiffEntity object or an Existing one if the id
+	 * Saves the DiffEntity getting the id, left and right params to create a new DiffEntity object or an existing one if the id
 	 * already exists
 	 * Transaction is used here to guarantee the atomicity of the request
 	 * @param id     the id of DiffEntity
@@ -53,7 +53,7 @@ public class DiffServiceImpl implements DiffService{
 	}
 	
 	/**
-	 * Diff method to return the result of the comparison between the content of the LEFT and the RIGHT values of the given id
+	 * Diff method to return the result of the comparison between the content of the LEFT and the RIGHT values based on the given id
 	 * Transaction readOnly | Propagation.SUPPORTS
 	 * @param id to search for a DiffEntity
 	 * @return ResponseDiffModel with the result of the comparison
