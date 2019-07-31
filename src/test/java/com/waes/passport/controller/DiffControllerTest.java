@@ -48,7 +48,7 @@ public class DiffControllerTest {
 	
 	@Before
 	public void setup() {
-		when(diffRepository.findById(any(Long.class))).thenReturn(getEntity(1L, "YWJjZGU=", "YTFjMmU="));
+		when(diffRepository.findById(any(Long.class))).thenReturn(getEntity(1L, "YWJjZGVmZ2hpag==", "YTEyMzRmZzExag=="));
 	}
 		
 	@Test
@@ -92,7 +92,7 @@ public class DiffControllerTest {
                 .content(om.writeValueAsString(new RequestDiffModel("abcd%")))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))
                 .andExpect(status().isInternalServerError())
-                .andExpect(jsonPath("$.message", is(Constants.INVALID_BASE64_VALUE)));
+                .andExpect(jsonPath("$.result", is(Constants.INVALID_BASE64_VALUE)));
 	}
 	
 	@Test
@@ -119,9 +119,9 @@ public class DiffControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.result", is(Constants.NOT_EQUAL_CONTENT)))
                 .andExpect(jsonPath("$.diffList[0].offset", is(1)))
-		        .andExpect(jsonPath("$.diffList[0].length", is(49)))
-		        .andExpect(jsonPath("$.diffList[1].offset", is(3)))
-		        .andExpect(jsonPath("$.diffList[1].length", is(50)));
+		        .andExpect(jsonPath("$.diffList[0].length", is(4)))
+		        .andExpect(jsonPath("$.diffList[1].offset", is(7)))
+		        .andExpect(jsonPath("$.diffList[1].length", is(2)));
 		verify(diffRepository, times(1)).findById(any(Long.class));
     }
 	

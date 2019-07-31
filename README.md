@@ -18,12 +18,14 @@ communicated
 
 ## Stack
 - Java 11
-- Spring boot 2
+- Spring boot 2.x
+- Hibernate
+- H2 Database
 - Docker
-- Jersey to create REST APIs
-- Unit Tests with JUnit
-- Gradle as the dependency manager
-- Log management with Log4j
+- Jersey
+- JUnit 5
+- Gradle
+- Log4j
 
 ## How to run
 For the usability purposes you can find the built waes-passport.jar in the /run-package directory

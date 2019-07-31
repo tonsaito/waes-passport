@@ -62,13 +62,13 @@ public class DiffServiceImplTest {
 	
 	@Test
 	public void shouldReturnNotEqualContentAndDiffListOnDiff() {
-		when(diffRepository.findById(any(Long.class))).thenReturn(getEntity(1L, "YWJjZGU=", "YTFjMmU="));
+		when(diffRepository.findById(any(Long.class))).thenReturn(getEntity(1L, "YWJjZGVmZ2hpag==", "YTEyMzRmZzExag=="));
 		ResponseDiffModel responseDiffModel = diffService.diff(1L);
 		assertEquals(Constants.NOT_EQUAL_CONTENT, responseDiffModel.getResult());
 		assertTrue(responseDiffModel.getDiffList().get(0).getOffset().equals(1));
-		assertTrue(responseDiffModel.getDiffList().get(0).getLength().equals(49));
-		assertTrue( responseDiffModel.getDiffList().get(1).getOffset().equals(3));
-		assertTrue(responseDiffModel.getDiffList().get(1).getLength().equals(50));
+		assertTrue(responseDiffModel.getDiffList().get(0).getLength().equals(4));
+		assertTrue( responseDiffModel.getDiffList().get(1).getOffset().equals(7));
+		assertTrue(responseDiffModel.getDiffList().get(1).getLength().equals(2));
 	}
 	
 	private Optional<DiffEntity> getEntity(Long id, String left, String right) {

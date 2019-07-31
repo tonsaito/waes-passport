@@ -67,20 +67,31 @@ public class DiffServiceImpl implements DiffService{
 		
 		if(diffEntity == null) {
 			responseDiffModel.setResult(Constants.ID_NOT_FOUND_PLEASE_TRY_AGAIN);
-		} else if ((diffEntity.getLeft() == null) && (diffEntity.getRight() == null) || Arrays.equals(diffEntity.getLeft(), diffEntity.getRight())) {
-			responseDiffModel.setResult(Constants.EQUAL_CONTENT);
-			return responseDiffModel;
-		} else if (diffEntity.getLeft().length != diffEntity.getRight().length) {
-			responseDiffModel.setResult(Constants.NOT_EQUAL_SIZE);
-			return responseDiffModel;
 		} else {
-			for(int i=0; i< diffEntity.getLeft().length; i++) {
-				if(diffEntity.getLeft()[i] != diffEntity.getRight()[i]) {
-					responseDiffModel.addDiffList(new DiffHintModel(i, Math.abs(diffEntity.getRight()[i]-diffEntity.getLeft()[i])));
+			if(diffEntity.getLeft() == null)diffEntity.setLeft("".getBytes());
+			if(diffEntity.getRight() == null)diffEntity.setRight("".getBytes());
+			if (Arrays.equals(diffEntity.getLeft(), diffEntity.getRight())) {
+				responseDiffModel.setResult(Constants.EQUAL_CONTENT);
+				return responseDiffModel;
+			} else if (diffEntity.getLeft().length != diffEntity.getRight().length) {
+				responseDiffModel.setResult(Constants.NOT_EQUAL_SIZE);
+				return responseDiffModel;
+			} else {
+				for (int i = 0; i < diffEntity.getLeft().length; i++) {
+					if (diffEntity.getLeft()[i] != diffEntity.getRight()[i]) {
+						int offset = i, length = 0;
+						lengthLoop: for (int j = i; j < diffEntity.getLeft().length; j++) {
+							i = j;
+							if (diffEntity.getLeft()[j] != diffEntity.getRight()[j]) length++;
+							else break lengthLoop;
+						}
+						responseDiffModel.addDiffList(new DiffHintModel(offset, length));
+					}
 				}
 				responseDiffModel.setResult(Constants.NOT_EQUAL_CONTENT);
 			}
 		}
+		LOGGER.info("Executed diff method with the follow id: "+id);
 		return responseDiffModel;
 	}
 }

@@ -3,6 +3,9 @@ package com.waes.passport.util;
 import java.util.Base64;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
+
+import com.waes.passport.config.Constants;
 
 /**
  * Encoding Utility class
@@ -11,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  */
 public class EncodingUtil {
+	private static final Logger LOGGER = Logger.getLogger(EncodingUtil.class);
 	private EncodingUtil() {}
 
 	/**
@@ -26,7 +30,8 @@ public class EncodingUtil {
 		try {
 			return Base64.getDecoder().decode(data);
 		} catch (Exception e) {
-			throw new IllegalArgumentException("Invalid base64 entry", e);
+			LOGGER.error(Constants.INVALID_BASE64_VALUE, e);
+			throw new IllegalArgumentException(Constants.INVALID_BASE64_VALUE, e);
 		}
 	}
 }

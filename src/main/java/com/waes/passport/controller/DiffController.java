@@ -88,7 +88,7 @@ public class DiffController {
 	@GetMapping("/{id}")
 	public ResponseEntity<?> diff(@PathVariable("id") String id) {
 		if(!StringUtils.isNumeric(id)) {
-	        return new ResponseEntity<ResponseModel>(new ResponseModel(Constants.INVALID_ID_PLEASE_TRY_AGAIN), HttpStatus.BAD_REQUEST); 
+	        return new ResponseEntity<ResponseDiffModel>(new ResponseDiffModel(Constants.INVALID_ID_PLEASE_TRY_AGAIN), HttpStatus.BAD_REQUEST); 
 		}
         return new ResponseEntity<ResponseDiffModel>(diffService.diff(Long.parseLong(id)), HttpStatus.OK); 
 	}

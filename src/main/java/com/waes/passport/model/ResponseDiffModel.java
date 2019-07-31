@@ -13,6 +13,12 @@ public class ResponseDiffModel {
 
 	private String result;
 	private List<DiffHintModel> diffList = new ArrayList<DiffHintModel>();
+	
+	public ResponseDiffModel() {}
+	
+	public ResponseDiffModel(String result) {
+		this.result = result;
+	}
 
 	public String getResult() {
 		return result;
